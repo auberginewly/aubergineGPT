@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { assets } from './assets/assets' 
+import { Toaster } from 'react-hot-toast'
 
 import Sidebar from './components/Sidebar'
 import ChatBox from './components/ChatBox'
@@ -34,6 +35,31 @@ const App = () => {
           </Routes>
         </div>
       </div>
+      
+      {/* Toast 通知组件 */}
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 2000,
+          style: {
+            background: 'var(--toast-bg)',
+            color: 'var(--toast-color)',
+            border: '1px solid var(--toast-border)',
+          },
+          success: {
+            iconTheme: {
+              primary: '#22c55e',
+              secondary: '#ffffff',
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#ffffff',
+            },
+          },
+        }}
+      />
     </>
   )
 }
