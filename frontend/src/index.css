@@ -7,6 +7,8 @@
 /* 导入 markdown 样式模块 */
 @import './styles/markdown/index.css';
 
+/* 导入 toast 样式模块 */
+@import './styles/toast/toast.css';
 * {
   font-family: "Outfit", sans-serif;
 }

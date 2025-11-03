@@ -84,12 +84,6 @@
   color: #374151;
 }
 
-.copy-button.copied {
-  background-color: #dcfce7;
-  border-color: #16a34a;
-  color: #16a34a;
-}
-
 .dark .copy-button {
   border-color: #4b5563;
   color: #9ca3af;
@@ -99,12 +93,6 @@
   background-color: #4b5563;
   border-color: #6b7280;
   color: #f3f4f6;
-}
-
-.dark .copy-button.copied {
-  background-color: #14532d;
-  border-color: #22c55e;
-  color: #22c55e;
 }
 
 /* 代码块内容区域 */
