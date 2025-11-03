@@ -340,3 +340,5 @@ export const ROUTES = {
   register: '/register',
   profile: '/profile',
 } as const;
+
+export default assets
