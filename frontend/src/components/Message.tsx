@@ -6,7 +6,8 @@ import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { useAppContext } from '../context/AppContext'
-import { useState } from 'react'  
+
+import toast from 'react-hot-toast'  
 
 // 启用相对时间插件和中文本地化
 dayjs.extend(relativeTime)
@@ -28,7 +29,6 @@ interface MessageProps {
 
 const Message = ({ message }: MessageProps) => {
   const { theme } = useAppContext()
-  const [copiedStates, setCopiedStates] = useState<{[key: string]: boolean}>({})
   
   // 使用 dayjs 格式化时间
   const formatTimestamp = (timestamp: Date) => {
@@ -50,16 +50,21 @@ const Message = ({ message }: MessageProps) => {
   }
 
   // 复制代码功能
-  const copyToClipboard = async (text: string, codeId: string) => {
+  const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text)
-      setCopiedStates(prev => ({ ...prev, [codeId]: true }))
-      // 2秒后重置复制状态
-      setTimeout(() => {
-        setCopiedStates(prev => ({ ...prev, [codeId]: false }))
-      }, 2000)
+      toast.success('代码已复制到剪贴板！', {
+        icon: '📋',
+        style: {
+          borderRadius: '8px',
+          fontWeight: '500',
+        },
+      })
     } catch (err) {
       console.error('复制失败:', err)
+      toast.error('复制失败，请重试', {
+        icon: '❌',
+      })
     }
   }
 
@@ -69,8 +74,6 @@ const Message = ({ message }: MessageProps) => {
     const language = match ? match[1] : ''
     const isDark = theme === 'dark'
     const codeContent = String(children).replace(/\n$/, '')
-    const codeId = `${language}-${Math.random().toString(36).substr(2, 9)}`
-    const isCopied = copiedStates[codeId]
     
     if (language) {
       return (
@@ -79,26 +82,15 @@ const Message = ({ message }: MessageProps) => {
           <div className="code-block-header">
             <span className="code-language">{language}</span>
             <button 
-              className={`copy-button ${isCopied ? 'copied' : ''}`}
-              onClick={() => copyToClipboard(codeContent, codeId)}
-              title={isCopied ? '已复制!' : '复制代码'}
+              className="copy-button"
+              onClick={() => copyToClipboard(codeContent)}
+              title="复制代码"
             >
-              {isCopied ? (
-                <>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="20,6 9,17 4,12"></polyline>
-                  </svg>
-                  <span className="ml-1">已复制</span>
-                </>
-              ) : (
-                <>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                  </svg>
-                  <span className="ml-1">复制</span>
-                </>
-              )}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span className="ml-1">复制</span>
             </button>
           </div>
           {/* 代码内容 */}
