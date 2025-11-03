@@ -1,15 +1,21 @@
 {
-  "name": "backend",
+  "name": "auberginegpt-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend server for aubergineGPT - A TypeScript Express server",
+  "main": "dist/server.js",
   "type": "module",
   "scripts": {
-    "start":"node server.js",
-    "server":"nodemon server.js"
+    "start": "node dist/server.js",
+    "dev": "ts-node --esm src/server.ts",
+    "build": "tsc",
+    "watch": "nodemon --exec ts-node --esm src/server.ts",
+    "clean": "rm -rf dist",
+    "type-check": "tsc --noEmit",
+    "lint": "echo 'Linting not configured yet'",
+    "test": "echo 'Tests not configured yet'"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["aubergineGPT", "typescript", "express", "backend", "ai", "chatbot"],
+  "author": "auberginewly",
   "license": "ISC",
   "packageManager": "pnpm@10.17.1",
   "dependencies": {
@@ -21,6 +27,11 @@
     "mongoose": "^8.19.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }
