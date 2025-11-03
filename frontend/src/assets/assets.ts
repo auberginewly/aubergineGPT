@@ -168,30 +168,235 @@ export const dummyPlans: Plan[] = [
   }
 ];
 
+// ...existing imports...
+
+// 修复时间戳顺序 - 最新的在上面
 export const dummyChats: Chat[] = [
   {
-    _id: "689de4bbaa932dc3a8ef6cd7",
+    _id: "689abc1234567890abcdef12",
     userId: "689c6deed410acddc0d95a0e",
-    userName: "aubergineGPT User",
-    name: "🍆 茄子AI图片生成",
+    userName: "aubergineGPT User", 
+    name: "🎨 创意设计讨论",
     messages: [
       {
         isImage: false,
         isPublished: false,
         role: "user",
-        content: "生成一个茄子在花园里的图片",
-        timestamp: 1755178179612,
+        content: "帮我设计一个现代化的游戏设置",
+        timestamp: Date.now() - 30 * 1000, // 30秒前 - 最新
       },
       {
-        isImage: true,
-        isPublished: true,
+        isImage: false,
+        isPublished: false,
         role: "assistant",
-        content: ai_image11,
-        timestamp: 1755178194747,
+        content: `好的，我会为你设计一个现代化的游戏设置。以下是一些建议：
+
+## 🎮 核心功能设置
+
+### 画面设置
+- **分辨率**: 支持 4K、2K、1080p 自适应
+- **帧率**: 60/120/144 FPS 可选
+- **画质**: 极高/高/中/低 四档预设
+- **光线追踪**: 实时反射、全局光照
+
+### 控制设置
+- **键位绑定**: 完全自定义
+- **鼠标灵敏度**: 精确调节
+- **手柄支持**: Xbox/PS5 手柄适配
+
+### 音频设置
+- **3D 音效**: 7.1 环绕声
+- **音量分离**: 背景音乐/音效/语音独立调节
+
+### 界面设置
+- **主题**: 暗色/亮色/自动切换
+- **字体大小**: 小/中/大/特大
+- **透明度**: UI 元素透明度调节
+
+是否需要我详细设计某个特定部分？`,
+        timestamp: Date.now() - 15 * 1000, // 15秒前
+      },
+      {
+        isImage: false,
+        isPublished: false,
+        role: "user",
+        content: "无序列表和有序列表",
+        timestamp: Date.now() - 10 * 1000, // 10秒前
+      },
+      {
+        isImage: false,
+        isPublished: false,
+        role: "assistant",
+        content: `好问题！让我展示一下各种列表格式：
+
+## 📝 无序列表示例
+
+### 基本无序列表
+- 第一项内容
+- 第二项内容
+- 第三项内容
+
+### 嵌套无序列表
+- 主要功能
+  - 子功能A
+  - 子功能B
+    - 详细功能1
+    - 详细功能2
+- 次要功能
+  - 子功能C
+  - 子功能D
+
+### 混合内容列表
+- **重要提醒**: 这是加粗文本
+- *斜体说明*: 这是斜体文本
+- \`代码示例\`: console.log('Hello World')
+- 普通文本内容
+
+## 🔢 有序列表示例
+
+### 基本有序列表
+1. 第一步操作
+2. 第二步操作
+3. 第三步操作
+
+### 嵌套有序列表
+1. 准备阶段
+   1. 检查环境
+   2. 安装依赖
+   3. 配置参数
+2. 执行阶段
+   1. 启动服务
+   2. 运行测试
+3. 完成阶段
+
+### 混合列表类型
+1. **主要步骤**
+   - 准备工作
+   - 执行任务
+2. **次要步骤**
+   - 检查结果
+   - 清理环境
+
+## ✅ 任务清单样式
+- [x] 已完成的任务
+- [x] 另一个完成的任务
+- [ ] 待完成的任务
+- [ ] 另一个待完成的任务
+
+这样的列表格式在聊天中会更加清晰易读！`,
+        timestamp: Date.now() - 5 * 1000, // 5秒前
+      },
+      {
+        isImage: false,
+        isPublished: false,
+        role: "user",
+        content: "代码块支持",
+        timestamp: Date.now() - 3 * 1000, // 3秒前
+      },
+      {
+        isImage: false,
+        isPublished: false,
+        role: "assistant",
+        content: `当然！我支持多种编程语言的代码块渲染：
+
+## 💻 代码块示例
+
+### JavaScript/TypeScript
+\`\`\`javascript
+// React Hook 示例
+import { useState, useEffect } from 'react'
+
+function App() {
+  const [count, setCount] = useState(0)
+  
+  useEffect(() => {
+    document.title = \`计数: \${count}\`
+  }, [count])
+
+  return (
+    <div className="app">
+      <h1>当前计数: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>
+        增加
+      </button>
+    </div>
+  )
+}
+\`\`\`
+
+### Python
+\`\`\`python
+# 数据处理示例
+import pandas as pd
+import numpy as np
+
+def analyze_data(data):
+    """分析数据并返回统计信息"""
+    result = {
+        'mean': np.mean(data),
+        'std': np.std(data),
+        'count': len(data)
+    }
+    return result
+
+# 使用示例
+data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+stats = analyze_data(data)
+print(f"平均值: {stats['mean']:.2f}")
+\`\`\`
+
+### CSS
+\`\`\`css
+/* 现代化的卡片样式 */
+.card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+\`\`\`
+
+### JSON
+\`\`\`json
+{
+  "name": "aubergineGPT",
+  "version": "1.0.0",
+  "description": "智能对话助手",
+  "features": [
+    "多语言代码高亮",
+    "Markdown 渲染",
+    "暗黑模式支持",
+    "响应式设计"
+  ],
+  "config": {
+    "theme": "auto",
+    "language": "zh-cn",
+    "maxTokens": 4096
+  }
+}
+\`\`\`
+
+### 行内代码
+除了代码块，我还支持行内代码：\`console.log('Hello World')\`、\`useState()\`、\`npm install\` 等。
+
+所有代码都支持语法高亮和主题切换！🎨`,
+        timestamp: Date.now() - 1 * 1000, // 1秒前
       }
     ],
-    createdAt: "2025-11-03T13:29:31.398Z",
-    updatedAt: "2025-11-03T13:29:54.753Z",
+    createdAt: new Date(Date.now() - 30 * 1000).toISOString(),
+    updatedAt: new Date(Date.now() - 30 * 1000).toISOString(),
   },
   {
     _id: "689ccb9016a922dd57a23fce",
@@ -204,86 +409,46 @@ export const dummyChats: Chat[] = [
         isPublished: false,
         role: "user",
         content: "你好，茄子GPT！",
-        timestamp: 1755106415912,
+        timestamp: Date.now() - 2 * 60 * 1000, // 2分钟前
       },
       {
         isImage: false,
         isPublished: false,
         role: "assistant",
         content: "你好！🍆 我是茄子GPT，一个智能对话助手。我可以帮你回答问题、生成图片，还能进行各种有趣的对话。有什么我可以帮助你的吗？",
-        timestamp: 1755106420723,
-      },
-      {
-        isImage: false,
-        isPublished: false,
-        role: "user",
-        content: "生成一个程序员工作的图片",
-        timestamp: 1755107475040,
-      },
-      {
-        isImage: true,
-        isPublished: true,
-        role: "assistant",
-        content: ai_image1,
-        timestamp: 1755107486680,
-      },
-      {
-        isImage: false,
-        isPublished: false,
-        role: "user",
-        content: "介绍一下 Web3 技术",
-        timestamp: 1755158982894,
-      },
-      {
-        isImage: false,
-        isPublished: false,
-        role: "assistant",
-        content: "Web3 是下一代互联网技术，主要特点包括：\n\n🔸 **去中心化** - 基于区块链技术，没有单一控制方\n🔸 **用户拥有数据** - 用户真正拥有自己的数字资产\n🔸 **智能合约** - 自动执行的合约代码\n🔸 **Token 经济** - 通过代币激励用户参与\n🔸 **互操作性** - 不同平台间可以无缝交互\n\nWeb3 正在改变我们使用互联网的方式，从被动消费者变为主动拥有者！",
-        timestamp: 1755158995829,
+        timestamp: Date.now() - 1 * 60 * 1000, // 1分钟前
       }
     ],
-    createdAt: "2025-11-03T17:29:52.421Z",
-    updatedAt: "2025-11-03T18:39:19.046Z",
+    createdAt: new Date(Date.now() - 2 * 60 * 1000).toISOString(),
+    updatedAt: new Date(Date.now() - 1 * 60 * 1000).toISOString(),
   },
   {
-    _id: "689abc1234567890abcdef12",
+    _id: "689de4bbaa932dc3a8ef6cd7",
     userId: "689c6deed410acddc0d95a0e",
-    userName: "aubergineGPT User", 
-    name: "🎨 创意设计讨论",
+    userName: "aubergineGPT User",
+    name: "🍆 茄子AI图片生成",
     messages: [
       {
         isImage: false,
         isPublished: false,
         role: "user",
-        content: "帮我设计一个现代化的游戏设置",
-        timestamp: 1755159264109,
+        content: "生成一个茄子在花园里的图片",
+        timestamp: Date.now() - 33 * 60 * 1000, // 33分钟前 - 最老
       },
       {
         isImage: true,
         isPublished: true,
         role: "assistant",
-        content: ai_image3,
-        timestamp: 1755159273878,
-      },
-      {
-        isImage: false,
-        isPublished: false,
-        role: "user",
-        content: "生成一个自然风景，要有很多树木",
-        timestamp: 1755160243315,
-      },
-      {
-        isImage: true,
-        isPublished: true,
-        role: "assistant",
-        content: ai_image4,
-        timestamp: 1755160254161,
+        content: ai_image11,
+        timestamp: Date.now() - 32 * 60 * 1000, // 32分钟前
       }
     ],
-    createdAt: "2025-11-03T16:15:30.123Z",
-    updatedAt: "2025-11-03T17:20:45.678Z",
+    createdAt: new Date(Date.now() - 33 * 60 * 1000).toISOString(),
+    updatedAt: new Date(Date.now() - 32 * 60 * 1000).toISOString(),
   }
 ];
+
+// ...rest of the code remains the same...
 
 // ============ 工具函数 ============
 
