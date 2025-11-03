@@ -1,0 +1,66 @@
+/* ===== Markdown 列表样式 ===== */
+
+/* 基础列表样式 */
+.markdown-content ul,
+.markdown-content ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.markdown-content ul {
+  list-style-type: disc;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
+}
+
+/* 嵌套列表样式 */
+.markdown-content ul ul {
+  list-style-type: circle;
+  margin: 0.25rem 0;
+}
+
+.markdown-content ul ul ul {
+  list-style-type: square;
+}
+
+/* 列表项样式 */
+.markdown-content li {
+  margin: 0.25rem 0;
+  line-height: 1.5;
+  display: list-item;
+}
+
+.markdown-content li > p {
+  margin: 0;
+}
+
+/* 列表项间距优化 */
+.markdown-content li + li {
+  margin-top: 0.25rem;
+}
+
+/* 嵌套列表间距 */
+.markdown-content li > ul,
+.markdown-content li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* ===== 任务清单样式 ===== */
+.markdown-content li:has(input[type="checkbox"]) {
+  list-style: none;
+  position: relative;
+  padding-left: 0;
+}
+
+.markdown-content input[type="checkbox"] {
+  margin-right: 0.5rem;
+  transform: scale(1.1);
+}
+
+.markdown-content input[type="checkbox"]:checked + * {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
