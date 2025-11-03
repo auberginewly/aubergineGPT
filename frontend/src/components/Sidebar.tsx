@@ -69,7 +69,8 @@ const Sidebar = ({isMenuOpen, setIsMenuOpen}: SidebarProps) => {
           <div 
             key={chat.id} 
             className='p-2 px-4 dark:bg-[#57317C]/10 border border-gray-300 dark:border-[#80609F]/15 rounded-md cursor-pointer flex justify-between group'
-            onClick={() => setSelectedChat(chat)}
+            // 选中点击的聊天 回到首页并设置选中的聊天 移动端关闭菜单
+            onClick={() => {navigate('/'); setSelectedChat(chat); setIsMenuOpen(false)}}
           >
             <div>
               <p className='truncate w-full'>
@@ -90,7 +91,7 @@ const Sidebar = ({isMenuOpen, setIsMenuOpen}: SidebarProps) => {
 
       {/* 社区图片 */}
       <div 
-        onClick={() => navigate('/community')} 
+        onClick={() => {navigate('/community'); setIsMenuOpen(false)}} 
         className='flex items-center gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer hover:scale-103 transition-all'
       >
         <img src={assets.gallery_icon} className='w-4.5 not-dark:invert' alt="" />
@@ -101,7 +102,7 @@ const Sidebar = ({isMenuOpen, setIsMenuOpen}: SidebarProps) => {
 
       {/* 积分购买选项 */}
       <div 
-        onClick={() => navigate('/credits')} 
+        onClick={() => {navigate('/credits'); setIsMenuOpen(false)}}
         className='flex items-center gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer hover:scale-103 transition-all'
       >
         <img src={assets.diamond_icon} className='w-4.5 dark:invert' alt="" />
