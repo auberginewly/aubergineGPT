@@ -145,7 +145,7 @@ const Message = ({ message }: MessageProps) => {
         )
       } else {
         return (
-          <div className='text-sm dark:text-primary reset-tw markdown-content'>
+          <div className='text-sm dark:text-primary markdown-content'>
             <ReactMarkdown
               components={{
                 code: CodeBlock,
@@ -177,7 +177,7 @@ const Message = ({ message }: MessageProps) => {
             />
           )}
           {text && (
-            <div className='text-sm dark:text-primary reset-tw markdown-content'>
+            <div className='text-sm dark:text-primary markdown-content'>
               <ReactMarkdown
                 components={{
                   code: CodeBlock,
@@ -194,7 +194,7 @@ const Message = ({ message }: MessageProps) => {
 
     // 默认情况
     return (
-      <div className='text-sm dark:text-primary reset-tw'>
+      <div className='text-sm dark:text-primary markdown-content'>
         内容格式错误
       </div>
     )
