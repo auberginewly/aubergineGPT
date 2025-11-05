@@ -61,7 +61,7 @@ const Sidebar = ({isMenuOpen, setIsMenuOpen}: SidebarProps) => {
   }
   
   return (  
-    <div className={`flex flex-col h-screen min-w-72 p-5 dark:bg-gradient-to-b from-[#242124]/30 to-[#000000]/30 border-r border-[#80609F]/30 backdrop-blur-3xl transition-all duration-500 max-md:absolute left-0 z-40
+    <div className={`flex flex-col h-screen min-w-72 p-5 dark:bg-linear-to-b from-[#242124]/30 to-[#000000]/30 border-r border-[#80609F]/30 backdrop-blur-3xl transition-all duration-500 max-md:absolute left-0 z-40
       ${!isMenuOpen && 'max-md:-translate-x-full'}`}>
       {/* Logo */}
       <img 
@@ -72,7 +72,7 @@ const Sidebar = ({isMenuOpen, setIsMenuOpen}: SidebarProps) => {
 
       {/* 新对话按钮 */}
       <button 
-        className='flex justify-center items-center w-full py-2 mt-10 text-white bg-gradient-to-r from-[#A456F7] to-[#3D81F6] text-sm rounded-md cursor-pointer hover:from-[#B566F8] hover:to-[#4E92F7] transition-all'
+        className='flex justify-center items-center w-full py-2 mt-10 text-white bg-linear-to-r from-[#A456F7] to-[#3D81F6] text-sm rounded-md cursor-pointer hover:from-[#B566F8] hover:to-[#4E92F7] transition-all'
         // onClick={createNewChat}
       >
         <span className='mr-2 text-xl'>+</span> 新对话
