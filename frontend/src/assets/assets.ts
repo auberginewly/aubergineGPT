@@ -130,40 +130,40 @@ export const dummyUserData: User = {
 export const dummyPlans: Plan[] = [
   {
     _id: "basic",
-    name: "Basic",
+    name: "基础版",
     price: 10,
     credits: 100,
     features: [
-      '100 text generations',
-      '50 image generations', 
-      'Standard support',
-      'Access to basic models'
+      '100 次文本生成',
+      '50 次图片生成', 
+      '标准客服支持',
+      '访问基础模型'
     ]
   },
   {
     _id: "pro",
-    name: "Pro",
+    name: "专业版",
     price: 20,
     credits: 500,
     features: [
-      '500 text generations',
-      '200 image generations',
-      'Priority support',
-      'Access to pro models',
-      'Faster response time'
+      '500 次文本生成',
+      '200 次图片生成',
+      '优先客服支持',
+      '访问专业模型',
+      '更快响应速度'
     ]
   },
   {
     _id: "premium",
-    name: "Premium",
+    name: "高级版",
     price: 30,
     credits: 1000,
     features: [
-      '1000 text generations',
-      '500 image generations',
-      '24/7 VIP support',
-      'Access to premium models',
-      'Dedicated account manager'
+      '1000 次文本生成',
+      '500 次图片生成',
+      '24/7 VIP 客服',
+      '访问高级模型',
+      '专属客户经理'
     ]
   }
 ];
