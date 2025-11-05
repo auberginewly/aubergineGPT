@@ -8,17 +8,25 @@ import ChatBox from './components/ChatBox'
 import Credits from './pages/Credits'
 import Community from './pages/Community'
 import Loading from './pages/Loading'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const {pathname} = useLocation()
+  
   if (pathname === '/loading') {
     return <Loading />
   }
 
+  // 判断是否为登录页面
+  const isLoginPage = pathname === '/login'
+  const isSignupPage = pathname === '/signup'
+
   return (
     <>
-      {!isMenuOpen && 
+      {!isMenuOpen && !isLoginPage && !isSignupPage && 
       <img 
         src={assets.menu_icon} 
         className='absolute top-3 left-3 w-8 h-8 cursor-pointer md:hidden not-dark:invert' 
@@ -27,8 +35,10 @@ const App = () => {
       <div className='dark:bg-linear-to-b from-[#242124] to-[#000000]
       dark:text-white'>
         <div className='flex h-screen w-screen'>
-          <Sidebar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+          {!isLoginPage && !isSignupPage && <Sidebar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />}
           <Routes>
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/" element={<ChatBox />} />
             <Route path="/credits" element={<Credits />} />
             <Route path="/community" element={<Community />} />
